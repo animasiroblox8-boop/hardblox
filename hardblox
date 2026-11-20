@@ -1,0 +1,45 @@
+cd /mnt/user-data/outputs && cp hardblox.html /home/claude/hb_backup4.html && python3 - <<'PYEOF'
+p='/mnt/user-data/outputs/hardblox.html'
+s=open(p).read()
+def rep(a,b,n=1):
+    global s
+    assert s.count(a)==n,(s.count(a),a[:70])
+    s=s.replace(a,b)
+def cut(a,b,new):
+    global s
+    i=s.index(a);j=s.index(b,i);s=s[:i]+new+s[j:]
+# CSS + HTML
+rep('</style>','#ibtn{left:12px;top:calc(112px + env(safe-area-inset-top,0px));width:44px;height:44px;border-radius:50%;padding:0;font-size:20px}\n</style>')
+rep('<button class="hud" id="cbtn">💬</button>','<button class="hud" id="cbtn">💬</button><button class="hud" id="ibtn">👥</button><div class="hud" id="ipan" style="display:none;left:12px;top:calc(162px + env(safe-area-inset-top,0px));background:rgba(0,0,0,.65);border-radius:12px;padding:10px;min-width:190px"></div>')
+rep('<div id="pf"></div>','<div id="inv" style="display:none;position:fixed;left:12px;right:12px;top:calc(12px + env(safe-area-inset-top,0px));z-index:60;background:var(--card);color:var(--tx);border:1px solid var(--bd);border-radius:14px;padding:12px"></div><div id="pf"></div>')
+rep('<button id="mkown" style="display:none;margin-top:10px;width:100%">Jadikan akun ini Owner</button>','')
+cut('<h3>Report</h3>','<h3>Kirim Tix</h3>','<h3>Laporan kata terlarang</h3><div id="rlist"></div><h3>Ban pemain</h3><input id="bn" placeholder="Nama akun (contoh: budi)" style="margin-bottom:6px"><select id="bd" style="width:100%;padding:10px;border-radius:10px;border:1px solid var(-
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>HardBlox - Main</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0f0f1a;color:#fff;font-family:Arial,sans-serif;overflow:hidden}
+#top{padding:10px;display:flex;justify-content:space-between;align-items:center;background:#1a1a2e}
+#top b{color:#ffcc00;font-size:18px}
+#top a{color:#fff;text-decoration:none;background:#333;padding:6px 12px;border-radius:8px;font-size:13px}
+#game{position:relative;width:100%;height:calc(100vh - 50px);background:linear-gradient(#87CEEB,#e0f7ff);overflow:hidden}
+#ground{position:absolute;bottom:0;left:0;width:100%;height:60px;background:#5C3A21;border-top:6px solid #2ecc71}
+#player{position:absolute;bottom:60px;left:50px;width:45px;height:45px;background:#ffcc00;border:3px solid #000;border-radius:6px}
+#player:before{content:"";position:absolute;top:8px;left:8px;width:8px;height:8px;background:#000;border-radius:50%}
+#player:after{content:"";position:absolute;top:8px;right:8px;width:8px;height:8px;background:#000;border-radius:50%}
+.obstacle{position:absolute;bottom:60px;background:#e74c3c;border:3px solid #000;border-radius:4px}
+.coin{position:absolute;width:28px;height:28px;background:#ffd700;border:3px solid #b8860b;border-radius:50%;text-align:center;line-height:22px;font-size:16px}
+.hud{position:absolute;z-index:20;width:44px;height:44px;border-radius:50%;border:none;font-size:20px;background:rgba(0,0,0,.65);color:#fff}
+#cbtn{right:12px;top:calc(62px + env(safe-area-inset-top,0px))}
+#ibtn{left:12px;top:calc(112px + env(safe-area-inset-top,0px));width:44px;height:44px;border-radius:50%;padding:0;font-size:20px}
+#ipan{position:absolute;z-index:20;display:none;left:12px;top:calc(162px + env(safe-area-inset-top,0px));background:rgba(0,0,0,.75);border-radius:12px;padding:10px;min-width:190px;font-size:13px;line-height:1.6}
+#inv{display:none;position:fixed;left:12px;right:12px;top:calc(12px + env(safe-area-inset-top,0px));z-index:60;background:#1a1a2e;color:#fff;border:1px solid #444;border-radius:14px;padding:12px}
+#scoreBox{position:absolute;top:12px;left:12px;background:rgba(0,0,0,.6);padding:8px 14px;border-radius:10px;font-weight:bold;z-index:10}
+#over{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);background:rgba(0,0,0,.88);padding:22px;border-radius:16px;text-align:center;display:none;width:88%;max-width:340px;z-index:30}
+#over h2{font-size:26px;margin-bottom:6px}
+.btn{padding:12px 20px
+.btn{padding:12px 20px
